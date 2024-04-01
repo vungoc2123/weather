@@ -20,6 +20,11 @@ class ApiClientProvider {
         return client;
       },
     );
-    getIt.registerLazySingleton<ApiClient>(() => ApiClient(dio, baseUrl: ''));
+    dio.options.headers = {
+      'X-RapidAPI-Key': 'ead4e93725msh0bb0eabba77163ep1590c9jsnfdaa671af6db',
+      'X-RapidAPI-Host': 'weatherbit-v1-mashape.p.rapidapi.com'
+    };
+
+    getIt.registerLazySingleton<ApiClient>(() => ApiClient(dio, baseUrl: 'https://weatherbit-v1-mashape.p.rapidapi.com'));
   }
 }
